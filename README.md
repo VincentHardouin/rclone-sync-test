@@ -8,20 +8,12 @@ Dans notre cas les S3 capatibles, sont des containers [Minio](https://min.io/)
 
 1. Lancer minio1 : 
 ```shell
-docker-compose up minio1
+docker-compose up minio1 minio2
 ```
 
-2. Récupérer l'endpoint : 
+2. Ajouter un bucket dans chaque minio disponible : [minio1](http://localhost:9001) et [minio2](http://localhost:9002)
 
-La sortie du terminal devrait afficher une ligne dans ce style :
+3. Quand vous souhaitez essayer le sync : 
 ```shell
- Endpoint: http://192.168.160.4:9000  http://127.0.0.1:9000 
+docker-compose up rclone
 ```
-
-Votre endpoint est donc : `http://192.168.160.4:9000`
-
-3. Remplacer l'endpoint dans le fichier `rclone.conf`
-
-4. Faire de même avec `minio2` 
-
-5. Ajouter un bucket dans chaque minio et adapter le service `rclone` dans le `docker-compose.yaml``
